@@ -1,0 +1,40 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+OPTIONS /*all                       controllers.Application.preflight(all)
+
+# Users
+GET     /users                      controllers.UserController.getUsers(page: Int ?= 1, limit: Int ?= 20)
+GET     /users/:id                  controllers.UserController.getUser(id: Long)
+POST    /users                      controllers.UserController.insertUser
+PUT     /users/:id                  controllers.UserController.updateUser(id: Long)
+PATCH   /users/:id                  controllers.UserController.patchUser(id: Long)
+DELETE  /users/:id                  controllers.UserController.deleteUser(id: Long)
+
+POST    /users/:uid/follows/:fid    controllers.UserController.followUser(uid: Long, fid: Long)
+DELETE  /users/:uid/follows/:fid    controllers.UserController.unfollowUser(uid: Long, fid: Long)
+GET     /users/:uid/follows         controllers.UserController.getFollows(uid: Long)
+GET     /users/:uid/followed-by     controllers.UserController.getFollowedBy(uid: Long)
+
+# Posts
+GET     /posts                      controllers.PostController.getPosts(page: Int ?= 1, limit: Int ?= 20)
+GET     /posts/:id                  controllers.PostController.getPost(id: Long)
+POST    /posts                      controllers.PostController.insertPost
+PUT     /posts/:id                  controllers.PostController.updatePost(id: Long)
+DELETE  /posts/:id                  controllers.PostController.delete(id: Long)
+
+GET     /users/:uid/posts           controllers.PostController.getPostsByUid(uid: Long)
+GET     /users/:uid/timeline        controllers.PostController.timeline(uid: Long, page: Int ?= 1, limit: Int ?= 10)
+
+# Swagger API Docs
+GET     /api-docs                   @controllers.ApiHelpController.getResources
+GET     /api-docs/users             @controllers.ApiHelpController.getResource(path="/users")
+GET     /api-docs/posts             @controllers.ApiHelpController.getResource(path="/posts")
+GET     /swagger-ui/*file           controllers.Assets.at(path = "/public/responsive", file)
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
