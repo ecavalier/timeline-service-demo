@@ -2,7 +2,9 @@ name := "timeline-service"
 
 version := "1.0"
 
-lazy val `timeline-service` = (project in file(".")).enablePlugins(PlayScala)
+lazy val `timeline-service` = (project in file("."))
+  .enablePlugins(PlayScala)
+  .enablePlugins(JavaAppPackaging)
 
 scalaVersion := "2.11.7"
 
