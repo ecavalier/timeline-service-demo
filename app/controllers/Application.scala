@@ -6,8 +6,8 @@ import play.api.mvc._
 class Application extends Controller {
 
   def index = Action {
-    Server.createWebServer("-webAllowOthers","-webPort","8082").start()
-    Server.createTcpServer("-tcpAllowOthers","-tcpPort","9092").start()
+//    Server.createWebServer("-webAllowOthers","-webPort","8082").start()
+//    Server.createTcpServer("-tcpAllowOthers","-tcpPort","9092").start()
 
     // @TODO Route to /public/dist
     // @TODO use webjars

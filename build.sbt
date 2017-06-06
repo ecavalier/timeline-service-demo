@@ -13,13 +13,13 @@ libraryDependencies ++= Seq(
   cache ,
   ws   ,
   filters  ,
-  "org.mindrot" % "jbcrypt" % "0.3m",
-  "org.json4s" %% "json4s-native" % "3.2.11"  ,
-  "com.h2database" % "h2" % "1.4.187"  ,
-  "com.typesafe.play" %% "play-slick" % "1.1.1"  ,
-  "com.typesafe.play" %% "play-slick-evolutions" % "1.1.1"  ,
-  "io.swagger" %% "swagger-play2" % "1.5.2",
-  "org.webjars" % "swagger-ui" % "2.2.0" ,
+  "org.mindrot" % "jbcrypt" % "0.4",
+  "org.json4s" %% "json4s-native" % "3.5.2"  ,
+  "com.h2database" % "h2" % "1.4.195"  ,
+  "com.typesafe.play" %% "play-slick" % "2.1.0"  ,
+  "com.typesafe.play" %% "play-slick-evolutions" % "2.1.0"  ,
+  "io.swagger" %% "swagger-play2" % "1.5.3",
+  "org.webjars" % "swagger-ui" % "3.0.10" ,
   specs2 % Test
 )
 

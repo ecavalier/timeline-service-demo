@@ -6,7 +6,7 @@ import javax.inject.Inject
 import models.Post
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import slick.driver.JdbcProfile
-import slick.profile.SqlProfile.ColumnOption.SqlType
+import slick.sql.SqlProfile.ColumnOption.SqlType
 
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global

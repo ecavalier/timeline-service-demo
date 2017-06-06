@@ -8,12 +8,12 @@ import models.Follow
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import slick.driver.JdbcProfile
 import slick.lifted.Tag
-import slick.profile.SqlProfile.ColumnOption.SqlType
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import slick.driver.H2Driver.api._
 import play.api.db.slick._
+import slick.sql.SqlProfile.ColumnOption.SqlType
 
 /**
   * Created by jinwookim on 11/15/16.
