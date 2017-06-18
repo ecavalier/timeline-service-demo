@@ -3,7 +3,7 @@ package services.Impl
 import java.time.LocalDateTime
 
 import com.google.inject.Inject
-import dao.UserDAO
+import daos.UserDAO
 import models.{Follow, User}
 import org.mindrot.jbcrypt.BCrypt
 import services.UserService
@@ -35,7 +35,7 @@ class UserServiceImpl @Inject() (userDAO: UserDAO) extends UserService {
     userDAO.insert(user)
   }
 
-  def insert(email: String, name: String, password: String) = {
+  def insert(email: String, name: String, password: String): Future[User] = {
     // @TODO using DB default value
     val createdAt = LocalDateTime.now
     val user = User(None, email, name, hash(password), Some(createdAt))

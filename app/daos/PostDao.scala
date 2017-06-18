@@ -1,4 +1,4 @@
-package dao
+package daos
 
 import java.time.LocalDateTime
 import javax.inject.Inject

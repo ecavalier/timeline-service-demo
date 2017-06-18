@@ -1,9 +1,9 @@
-package dao
+package daos.serializers
 
 import models.Post
 import org.json4s.JsonAST._
-import org.json4s.{CustomSerializer, NoTypeHints}
 import org.json4s.native.Serialization
+import org.json4s.{CustomSerializer, NoTypeHints}
 
 /**
   * Created by therootop on 11/14/16.

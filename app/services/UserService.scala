@@ -22,7 +22,7 @@ trait UserService {
 
   def insert(user: User): Future[User]
 
-  def insert(email: String, name: String, password: String)
+  def insert(email: String, name: String, password: String): Future[User]
 
   def update(id: Long, email: Option[String], name: Option[String], password: Option[String]): Future[Unit]
 

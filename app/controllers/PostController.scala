@@ -2,7 +2,7 @@ package controllers
 
 import javax.inject.Inject
 
-import dao.PostSerializer
+import daos.serializers.PostSerializer
 import io.swagger.annotations._
 import models.Post
 import org.json4s.JsonDSL._

@@ -1,7 +1,7 @@
 package controllers
 
 import com.google.inject.Inject
-import dao.UserSerializer
+import daos.serializers.UserSerializer
 import io.swagger.annotations._
 import models.FollowAction
 import org.json4s.JsonDSL._

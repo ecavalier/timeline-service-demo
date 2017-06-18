@@ -1,7 +1,7 @@
-package dao
+package daos.serializers
 
 import models.User
-import org.json4s.JsonAST.{JBool, JField, JInt, JObject, JString, _}
+import org.json4s.JsonAST.{JField, JObject, JString, _}
 import org.json4s.native.Serialization
 import org.json4s.{CustomSerializer, NoTypeHints}
 

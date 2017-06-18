@@ -3,7 +3,7 @@ package services.Impl
 import java.time.LocalDateTime
 import javax.inject.Inject
 
-import dao.PostDao
+import daos.PostDao
 import models.Post
 import services.PostService
 
