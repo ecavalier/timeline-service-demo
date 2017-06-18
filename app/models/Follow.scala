@@ -3,7 +3,7 @@ package models
 import java.time.LocalDateTime
 
 /**
-  * Created by jinwookim on 11/15/16.
+  * Created by therootop on 11/15/16.
   */
 case class Follow(
   id: Option[Long],

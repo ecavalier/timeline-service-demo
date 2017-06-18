@@ -8,7 +8,7 @@
 //import scala.concurrent.ExecutionContext.Implicits.global
 //
 ///**
-//  * Created by jinwookim on 11/16/16.
+//  * Created by therootop on 11/16/16.
 //  */
 //class Global @Inject() (implicit val mat: Materializer) {
 //

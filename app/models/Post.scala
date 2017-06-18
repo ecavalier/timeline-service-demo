@@ -5,7 +5,7 @@ import java.time.LocalDateTime
 import play.api.libs.json.Json
 
 /**
-  * Created by jinwookim on 11/14/16.
+  * Created by therootop on 11/14/16.
   */
 case class Post(
   id: Option[Long],

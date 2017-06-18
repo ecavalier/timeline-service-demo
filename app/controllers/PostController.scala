@@ -10,7 +10,7 @@ import org.json4s.{Extraction, NoTypeHints}
 import org.json4s.native.Serialization
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc.Controller
-import service.PostService
+import services.PostService
 import util.RestAction
 import util.RestAction._
 
@@ -18,7 +18,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 /**
-  * Created by jinwookim on 11/14/16.
+  * Created by therootop on 11/14/16.
   */
 @Api(value = "/posts", description = "Operation about Post")
 class PostController @Inject()(postService: PostService, val messagesApi: MessagesApi) extends Controller with I18nSupport {

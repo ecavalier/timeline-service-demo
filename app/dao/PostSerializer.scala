@@ -6,7 +6,7 @@ import org.json4s.{CustomSerializer, NoTypeHints}
 import org.json4s.native.Serialization
 
 /**
-  * Created by jinwookim on 11/14/16.
+  * Created by therootop on 11/14/16.
   */
 class PostSerializer extends CustomSerializer[Post](format => ({
   case JObject(_) => Post(None, -1, "", None)    // Deserialization 미구현

@@ -9,7 +9,7 @@ import org.json4s.native.Serialization
 import org.json4s.{Extraction, NoTypeHints, _}
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc.Controller
-import service.UserService
+import services.UserService
 import util.RestAction
 import util.RestAction._
 
@@ -17,7 +17,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 /**
-  * Created by jinwookim on 11/11/16.
+  * Created by therootop on 11/11/16.
   */
 @Api(value = "/user", description = "Operations about user")
 class UserController @Inject()(userService: UserService, val messagesApi: MessagesApi) extends Controller with I18nSupport {

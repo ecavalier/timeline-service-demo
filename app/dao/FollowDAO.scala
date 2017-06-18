@@ -16,7 +16,7 @@ import play.api.db.slick._
 import slick.sql.SqlProfile.ColumnOption.SqlType
 
 /**
-  * Created by jinwookim on 11/15/16.
+  * Created by therootop on 11/15/16.
   */
 class FollowDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider) extends HasDatabaseConfigProvider[JdbcProfile] {
 

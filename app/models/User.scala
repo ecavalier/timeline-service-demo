@@ -7,7 +7,7 @@ import play.api.libs.json.Json
 import play.api.libs.json._
 
 /**
-  * Created by jinwookim on 11/11/16.
+  * Created by therootop on 11/11/16.
   */
 case class User(
   id: Option[Long],

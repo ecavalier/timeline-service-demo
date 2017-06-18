@@ -11,7 +11,7 @@ import play.api.mvc.{ActionBuilder, Request, Result}
 import scala.concurrent.Future
 
 /**
-  * Created by jinwookim on 11/11/16.
+  * Created by therootop on 11/11/16.
   */
 object RestAction extends ActionBuilder[Request] {
   implicit val jsonFormats = Serialization.formats(NoTypeHints)

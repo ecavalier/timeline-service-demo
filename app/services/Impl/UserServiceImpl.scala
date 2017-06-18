@@ -1,4 +1,4 @@
-package service
+package services.Impl
 
 import java.time.LocalDateTime
 
@@ -6,13 +6,14 @@ import com.google.inject.Inject
 import dao.UserDAO
 import models.{Follow, User}
 import org.mindrot.jbcrypt.BCrypt
+import services.UserService
 
 import scala.concurrent.Future
 
 /**
-  * Created by jinwookim on 11/11/16.
+  * Created by rootop on 2017-06-18.
   */
-class UserService @Inject()(userDAO: UserDAO) {
+class UserServiceImpl @Inject() (userDAO: UserDAO) extends UserService {
 
   def list(page: Int, limit: Int): Future[Seq[User]] = {
     userDAO.list(page, limit)
@@ -87,3 +88,4 @@ class UserService @Inject()(userDAO: UserDAO) {
 
   private def compare(v: String, hashed: String): Boolean = hash(v) == hashed
 }
+

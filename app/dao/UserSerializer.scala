@@ -6,7 +6,7 @@ import org.json4s.native.Serialization
 import org.json4s.{CustomSerializer, NoTypeHints}
 
 /**
-  * Created by jinwookim on 11/13/16.
+  * Created by therootop on 11/13/16.
   */
 class UserSerializer extends CustomSerializer[User](format => ({
   case JObject(_) => User(None, "", "", "", None)    // Deserialization 미구현
