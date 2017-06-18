@@ -1,21 +1,21 @@
-package daos
+package daos.Impl
 
-import java.sql.{Date, Time, Timestamp}
-import java.time.{LocalDate, LocalDateTime, LocalTime}
+import java.time.LocalDateTime
 import javax.inject.Inject
 
+import daos.FollowComponent
 import models.{Follow, FollowAction, User}
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import slick.driver.JdbcProfile
 import slick.sql.SqlProfile.ColumnOption.SqlType
 
-import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
 
 /**
-  * Created by therootop on 11/11/16.
+  * Created by rootop on 2017-06-18.
   */
-class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider) extends HasDatabaseConfigProvider[JdbcProfile] with FollowComponent {
+class UserDaoImpl @Inject() (protected val dbConfigProvider: DatabaseConfigProvider) extends HasDatabaseConfigProvider[JdbcProfile] with FollowComponent {
   import driver.api._
 
   private val Users = TableQuery[AccountsTable]
@@ -96,3 +96,4 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider) 
     def * = (id.?, email, name, password, createdAt) <> ((User.apply _).tupled, User.unapply _)
   }
 }
+

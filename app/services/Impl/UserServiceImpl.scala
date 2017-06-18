@@ -11,7 +11,7 @@ import services.UserService
 import scala.concurrent.Future
 
 /**
-  * Created by rootop on 2017-06-18.
+  * Created by therootop on 2017-06-18.
   */
 class UserServiceImpl @Inject() (userDAO: UserDAO) extends UserService {
 

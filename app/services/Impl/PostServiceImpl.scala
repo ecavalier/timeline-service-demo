@@ -10,7 +10,7 @@ import services.PostService
 import scala.concurrent.Future
 
 /**
-  * Created by rootop on 2017-06-18.
+  * Created by therootop on 2017-06-18.
   */
 class PostServiceImpl @Inject() (postDAO: PostDao) extends PostService {
 

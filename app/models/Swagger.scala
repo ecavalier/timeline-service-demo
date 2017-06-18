@@ -5,7 +5,7 @@ import java.time.LocalDateTime
 import io.swagger.annotations.ApiModelProperty
 
 /**
-  * Created by rootop on 16/11/2016.
+  * Created by therootop on 16/11/2016.
   */
 class Swagger {
 }
