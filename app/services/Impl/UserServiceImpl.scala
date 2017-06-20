@@ -3,7 +3,7 @@ package services.Impl
 import java.time.LocalDateTime
 
 import com.google.inject.Inject
-import daos.UserDAO
+import daos.UserDao
 import models.{Follow, User}
 import org.mindrot.jbcrypt.BCrypt
 import services.UserService
@@ -13,7 +13,7 @@ import scala.concurrent.Future
 /**
   * Created by therootop on 2017-06-18.
   */
-class UserServiceImpl @Inject() (userDAO: UserDAO) extends UserService {
+class UserServiceImpl @Inject() (userDAO: UserDao) extends UserService {
 
   def list(page: Int, limit: Int): Future[Seq[User]] = {
     userDAO.list(page, limit)

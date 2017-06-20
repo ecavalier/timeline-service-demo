@@ -33,7 +33,7 @@ class PostServiceImpl @Inject() (postDAO: PostDao) extends PostService {
   override def insert(uid: Long, text: String): Future[Post] = {
     // @TODO using DB default value
     val createdAt = LocalDateTime.now
-    val post = Post(None, uid, text, Some(createdAt))
+    val post = Post(None, uid, text, None)
     postDAO.insert(post)
   }
 

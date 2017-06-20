@@ -3,7 +3,8 @@ package daos.Impl
 import java.time.LocalDateTime
 import javax.inject.Inject
 
-import daos.FollowComponent
+import daos.UserDao
+import daos.tables.{FollowsTable, SlickRepository, UserTable}
 import models.{Follow, FollowAction, User}
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import slick.driver.JdbcProfile
@@ -15,11 +16,10 @@ import scala.concurrent.Future
 /**
   * Created by rootop on 2017-06-18.
   */
-class UserDaoImpl @Inject() (protected val dbConfigProvider: DatabaseConfigProvider) extends HasDatabaseConfigProvider[JdbcProfile] with FollowComponent {
-  import driver.api._
+class UserDaoImpl @Inject() (protected val dbConfigProvider: DatabaseConfigProvider)
+  extends HasDatabaseConfigProvider[JdbcProfile] with UserDao with UserTable with SlickRepository with FollowsTable {
 
-  private val Users = TableQuery[AccountsTable]
-  private val Follows = TableQuery[FollowsTable]
+  import driver.api._
 
   def list(page: Int, limit: Int): Future[Seq[User]] = db.run(Users drop((page - 1) * limit) take(limit) result)
 
@@ -85,15 +85,5 @@ class UserDaoImpl @Inject() (protected val dbConfigProvider: DatabaseConfigProvi
     db.run(action)
   }
 
-  protected class AccountsTable(tag: Tag) extends Table[User](tag, "ACCOUNT") {
-
-    def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
-    def email = column[String]("EMAIL")
-    def name = column[String]("NAME")
-    def password = column[String]("PASSWORD")
-    def createdAt = column[Option[LocalDateTime]]("CREATED_AT", SqlType("timestamp not null default CURRENT_TIMESTAMP"))
-
-    def * = (id.?, email, name, password, createdAt) <> ((User.apply _).tupled, User.unapply _)
-  }
 }
 

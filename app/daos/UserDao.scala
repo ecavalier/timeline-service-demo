@@ -1,20 +1,17 @@
 package daos
 
-import java.sql.{Date, Time, Timestamp}
-import java.time.{LocalDate, LocalDateTime, LocalTime}
-import javax.inject.Inject
+import java.time.LocalDateTime
 
-import models.{Follow, FollowAction, User}
-import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
-import slick.driver.JdbcProfile
-import slick.sql.SqlProfile.ColumnOption.SqlType
+import com.google.inject.ImplementedBy
+import daos.Impl.UserDaoImpl
+import models.{Follow, User}
 
 import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
 
 /**
   * Created by therootop on 11/11/16.
   */
+@ImplementedBy(classOf[UserDaoImpl])
 trait UserDao {
 
   def list(page: Int, limit: Int): Future[Seq[User]]

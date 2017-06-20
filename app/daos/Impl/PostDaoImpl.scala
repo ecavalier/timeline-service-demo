@@ -1,13 +1,12 @@
 package daos.Impl
 
-import java.time.LocalDateTime
 import javax.inject.Inject
 
-import daos.FollowComponent
+import daos.PostDao
+import daos.tables.{FollowsTable, PostTable, SlickRepository}
 import models.Post
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
-import slick.driver.JdbcProfile
-import slick.sql.SqlProfile.ColumnOption.SqlType
+import slick.jdbc.JdbcProfile
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
@@ -15,11 +14,10 @@ import scala.concurrent.Future
 /**
   * Created by therootop on 2017-06-18.
   */
-class PostDaoImpl @Inject()(protected val dbConfigProvider: DatabaseConfigProvider) extends HasDatabaseConfigProvider[JdbcProfile] with FollowComponent {
-  import driver.api._
+class PostDaoImpl @Inject() (protected val dbConfigProvider: DatabaseConfigProvider)
+  extends HasDatabaseConfigProvider[JdbcProfile] with PostDao with FollowsTable with SlickRepository with PostTable {
 
-  private val Posts = TableQuery[PostsTable]
-  private val Follows = TableQuery[FollowsTable]
+  import profile.api._
 
   def list(page: Int, limit: Int): Future[Seq[Post]] = db.run(Posts drop((page - 1) * limit) take(limit) result)
 
@@ -55,16 +53,6 @@ class PostDaoImpl @Inject()(protected val dbConfigProvider: DatabaseConfigProvid
     val action = followerPosts union selfPosts sortBy (p => (p.createdAt desc, p.id desc)) drop((page - 1) * limit) take(limit)
 
     db.run(action result)
-  }
-
-  protected class PostsTable(tag: Tag) extends Table[Post](tag, "POST") {
-
-    def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
-    def uid = column[Long]("USER_ID")
-    def text = column[String]("TEXT")
-    def createdAt = column[Option[LocalDateTime]]("CREATED_AT", SqlType("timestamp not null default CURRENT_TIMESTAMP"))
-
-    def * = (id.?, uid, text, createdAt) <> ((Post.apply _).tupled, Post.unapply)
   }
 
 }
