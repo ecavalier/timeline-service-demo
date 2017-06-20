@@ -7,8 +7,7 @@ import daos.UserDao
 import daos.tables.{FollowsTable, SlickRepository, UserTable}
 import models.{Follow, FollowAction, User}
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
-import slick.driver.JdbcProfile
-import slick.sql.SqlProfile.ColumnOption.SqlType
+import slick.jdbc.JdbcProfile
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
@@ -19,7 +18,7 @@ import scala.concurrent.Future
 class UserDaoImpl @Inject() (protected val dbConfigProvider: DatabaseConfigProvider)
   extends HasDatabaseConfigProvider[JdbcProfile] with UserDao with UserTable with SlickRepository with FollowsTable {
 
-  import driver.api._
+  import profile.api._
 
   def list(page: Int, limit: Int): Future[Seq[User]] = db.run(Users drop((page - 1) * limit) take(limit) result)
 
